@@ -1,0 +1,28 @@
+{
+  "name": "batch-validator",
+  "version": "0.0.1",
+  "description": "Create challenges and validate values against them",
+  "main": "batch-validator.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phazelift/batch-validator"
+  },
+  "dependencies" : {
+    "types.js"	: "latest"
+  },
+  "keywords": [
+    "validate",
+    "validator",
+    "validation",
+    "batch"
+  ],
+  "author": "Dennis Raymondo van der Sluis <phazelift@gmail.com> (https://github.com/phazelift/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phazelift/batch-validator/issues"
+  },
+  "homepage": "https://github.com/phazelift/batch-validator"
+}
