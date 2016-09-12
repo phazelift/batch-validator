@@ -1,4 +1,4 @@
-// regexp-validations, register validation types with regexp's and validate values against them.
+// batch-validator, Create challenges and validate values against them.
 //
 // MIT License
 //
@@ -30,7 +30,7 @@ var types= require( 'types.js' );
 
 
 // constructor
-var RegExpValidations= function( errorHandler ){
+var BatchValidator= function( errorHandler ){
 	this.setErrorHandler( errorHandler );
 	this.validations= {};
 };
@@ -39,20 +39,20 @@ var RegExpValidations= function( errorHandler ){
 
 
 // allow for overriding default error handler
-RegExpValidations.prototype.setErrorHandler= function( callback ){
+BatchValidator.prototype.setErrorHandler= function( callback ){
 	this.errorHandler= types.forceFunction( callback );
 	return this;
 };
 
 
 
-RegExpValidations.prototype.hasKey= function( key ){
+BatchValidator.prototype.hasKey= function( key ){
 	return this.validations.hasOwnProperty( key );
 };
 
 
 
-RegExpValidations.prototype.addOne= function( key, regexp ){
+BatchValidator.prototype.addOne= function( key, regexp ){
 	if ( types.notString(key) ){
 		this.errorHandler( 'key: ', key, 'is not of type string, cannot add validation!' );
 		return false;
@@ -69,7 +69,7 @@ RegExpValidations.prototype.addOne= function( key, regexp ){
 
 
 
-RegExpValidations.prototype.add= function( obj, regexp ){
+BatchValidator.prototype.add= function( obj, regexp ){
 	var hasFail= false;
 	if ( types.isObject(obj) ){
 		for ( var key in obj ){
@@ -81,7 +81,7 @@ RegExpValidations.prototype.add= function( obj, regexp ){
 
 
 
-RegExpValidations.prototype.validateOne= function( key, value ){
+BatchValidator.prototype.validateOne= function( key, value ){
 
 		if ( ! this.hasKey(key) ){
 			this.errorHandler( 'cannot validate non-existing key:', key );
@@ -107,7 +107,7 @@ RegExpValidations.prototype.validateOne= function( key, value ){
 
 
 
-RegExpValidations.prototype.validate= function( validations, value ){
+BatchValidator.prototype.validate= function( validations, value ){
 
 	if ( types.notArray(validations) ){
 		return this.validateOne( validations, value );
@@ -136,4 +136,4 @@ RegExpValidations.prototype.validate= function( validations, value ){
 };
 
 
-module.exports= RegExpValidations;
+module.exports= BatchValidator;
