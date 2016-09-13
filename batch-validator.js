@@ -31,6 +31,7 @@ var types= require( 'types.js' );
 
 // constructor
 var BatchValidator= function( errorHandler ){
+	// set this.errorHandler by default method
 	this.setErrorHandler( errorHandler );
 	this.validations= {};
 };
@@ -38,7 +39,6 @@ var BatchValidator= function( errorHandler ){
 
 
 
-// allow for overriding default error handler
 BatchValidator.prototype.setErrorHandler= function( callback ){
 	this.errorHandler= types.forceFunction( callback );
 	return this;
